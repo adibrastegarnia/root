@@ -1,0 +1,11 @@
+project:muti-repo-werf
+configVersion: 1
+---
+artifact: topo
+from: onosproject/onos-topo-base:latest
+git:
+- add: /go/src/github.com/onosproject/onos-topo/build/_output/onos-topo
+  to: /usr/local/bin/onos-topo
+docker:
+  ENTRYPOINT: ["onos-topo"]
+---
