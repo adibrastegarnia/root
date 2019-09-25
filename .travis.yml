@@ -1,0 +1,25 @@
+udo: false
+
+language: go
+
+go:
+  - '1.12.x'
+
+services:
+  - docker
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - $HOME/gopath/pkg/mod         # Cache the Go modules
+
+before_script:
+  - echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
+  - exec bash
+  - mkdir -p ~/bin | cd ~/bin | curl -L https://raw.githubusercontent.com/flant/multiwerf/master/get.sh | bash
